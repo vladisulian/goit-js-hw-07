@@ -21,8 +21,4 @@ function createGalleryItems(galleryItems) {
     })
     .join("");
 }
-
-const gallery = new SimpleLightbox(".gallery a");
-gallery.on("show.simplelightbox", function () {
-  captionDelay: "250";
-});
+const gallery = new SimpleLightbox(".gallery a", { captionDelay: "250" });
