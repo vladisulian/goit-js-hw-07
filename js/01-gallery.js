@@ -27,15 +27,17 @@ function onGalleryItemsClick(e) {
   if (e.target.nodeName !== "IMG") {
     return;
   }
+
+  // basicLightBox (how to open modal)
   const instance = basicLightbox.create(`<img src=${e.target.dataset.source}>`);
   instance.show();
   document.addEventListener("keydown", onModalCloseToEscape);
+
   function onModalCloseToEscape(e) {
     if (e.code === "Escape") {
       instance.close();
       document.removeEventListener("keydown", onModalCloseToEscape);
     }
   }
-
-  console.log("That's picture");
+  // console.log("That's picture");
 }
