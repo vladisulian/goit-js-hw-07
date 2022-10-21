@@ -29,9 +29,18 @@ function onGalleryItemsClick(e) {
   }
 
   // basicLightBox (how to open modal)
-  const instance = basicLightbox.create(`<img src=${e.target.dataset.source}>`);
+  const instance = basicLightbox.create(
+    `<img src=${e.target.dataset.source}>`,
+    {
+      onShow: (instance) => {
+        document.addEventListener("keydown", onModalCloseToEscape);
+      },
+      onClose: (instance) => {
+        document.removeEventListener("keydown", onModalCloseToEscape);
+      },
+    }
+  );
   instance.show();
-  document.addEventListener("keydown", onModalCloseToEscape);
 
   function onModalCloseToEscape(e) {
     if (e.code === "Escape") {
@@ -39,5 +48,9 @@ function onGalleryItemsClick(e) {
       document.removeEventListener("keydown", onModalCloseToEscape);
     }
   }
-  // console.log("That's picture");
 }
+
+// deleted
+// function onShow(instance) {
+//   document.addEventListener("keydown", onModalCloseToEscape);
+// }
