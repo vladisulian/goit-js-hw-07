@@ -15,7 +15,6 @@ function createGalleryItems(galleryItems) {
             class="gallery__image"
             src="${preview}"
             alt="${description}"
-            title="${description}"
           />
         </a>
       </li>
@@ -23,4 +22,8 @@ function createGalleryItems(galleryItems) {
     })
     .join("");
 }
-const gallery = new SimpleLightbox(".gallery a", { captionDelay: "250" });
+const gallery = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionPosition: "bottom",
+  captionDelay: "250",
+});
