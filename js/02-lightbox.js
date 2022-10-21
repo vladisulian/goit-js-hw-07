@@ -9,6 +9,7 @@ function createGalleryItems(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
       return `
+      <li>
         <a class="gallery__item" href="${original}" >
           <img
             class="gallery__image"
@@ -17,6 +18,7 @@ function createGalleryItems(galleryItems) {
             title="${description}"
           />
         </a>
+      </li>
         `;
     })
     .join("");
