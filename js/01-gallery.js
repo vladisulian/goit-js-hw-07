@@ -45,7 +45,6 @@ function onGalleryItemsClick(e) {
   function onModalCloseToEscape(e) {
     if (e.code === "Escape") {
       instance.close();
-      document.removeEventListener("keydown", onModalCloseToEscape);
     }
   }
 }
